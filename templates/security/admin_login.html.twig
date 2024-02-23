@@ -1,0 +1,86 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Connexion Admin{% endblock %}
+
+{% block body %}
+    
+
+    </head>
+
+    <body>
+        <!--  Body Wrapper -->
+     <div class="page-wrapper shadow" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="d-flex align-items-center justify-content-center w-100">
+            <div class="row justify-content-center w-100">
+                <div class="col-md-8 col-lg-6 col-xxl-3">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                                <img src="../assets/images/logos/dark-logo.svg" width="180" alt="">
+                                <h1 class="text-dark fw-bolder mb-3">Sign In</h1>
+                            </a>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <img src="{{ asset('img/logo_pi.jpg') }}" class="me-2" style="width: 100px; height: 100px; margin-right: 10px;">
+                            </div>
+                            <form id="signin-form" action="{{ path('app_login') }}" method="post">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" autocomplete="email" required autofocus>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" autocomplete="current-password" required>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
+                                        <label class="form-check-label text-dark" for="flexCheckChecked">
+                                            Remember this Device
+                                        </label>
+                                    </div>
+                                    <a href="{{ path('forgot_password') }}" class="btn btn-link text-primary">Forgot Password?</a>
+                                </div>
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                <button class="btn btn-primary w-100" type="submit">Sign in</button>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a class="text-primary fw-bold ms-2" href="{{ path('user_register') }}">Create an account</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+        <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        {% block javascripts %}
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var signInForm = document.getElementById('signin-form');
+                    if (signInForm) {
+                        signInForm.addEventListener('submit', function(event) {
+                            event.preventDefault(); // Empêche l'envoi du formulaire par défaut
+
+                            // Vous pouvez ajouter ici votre propre logique pour traiter le formulaire, par exemple, envoyer les données via AJAX
+
+                            // Pour l'exemple, nous laisserons simplement le formulaire se soumettre normalement
+                            signInForm.submit();
+                        });
+                    }
+                });
+            </script>
+        {% endblock %}
+    </body>
+
+    </html>
+{% endblock %}
+
+

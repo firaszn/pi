@@ -1,0 +1,55 @@
+user_register:
+  path: /register
+  controller: App\Controller\UserController::register
+
+app_registeradmin:
+  path: /registeradmin
+  controller: App\Controller\AdminregisterController::registeradmin
+
+home:
+  path: /home
+  controller: App\Controller\BaseController::home
+
+userupdate:
+  path: /user/update
+  controller: App\Controller\UserController::updateuser
+  methods: ['GET', 'POST']
+
+app_logout:
+  path: /logout
+  controller: App\Controller\SecurityController::logout
+
+api_login_check:
+  path: /api/login_check
+
+forgot_password:
+  path: /forgot-password
+  controller: App\Controller\SecurityController::forgotPasswordPage
+
+reset_password:
+  path: /reset-password
+  controller: App\Controller\SecurityController::resetPasswordPage
+
+app_dash:
+    path: /dashboard
+    controller: App\Controller\AdminregisterController::registeradmin
+
+list_user:
+    path: /list
+    controller: App\Controller\AdminregisterController::list
+
+detail_user:
+    path: /detail/{id}
+    controller: App\Controller\AdminregisterController::detail
+
+delete_user:
+    path: /user/delete/{id}
+    controller: App\Controller\AdminregisterController::deleteUser
+
+admin_login:
+    path: /loginadmin
+    controller: App\Controller\SecurityController::loginadmin
+
+app_back:
+    path: /back
+    controller: App\Controller\BackController::index
